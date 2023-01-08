@@ -645,6 +645,8 @@
 
 &vop {
 	status = "okay";
+	assigned-clocks = <&cru ACLK_VOP>;
+	assigned-clock-rates = <800000000>;
 };
 
 &vop_mmu {
@@ -878,7 +880,7 @@
 };
 
 &dp0_in_vp2 {
-	status = "disable";
+	status = "disabled";
 };
 
 
@@ -888,7 +890,7 @@
 
 
 &dp0_in_vp1 {
-	status = "okay";
+	status = "disabled";
 };
 
 
