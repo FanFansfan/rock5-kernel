@@ -85,7 +85,7 @@
 
 	bt_uart6: wireless_bluetooth: wireless-bluetooth {
 		compatible = "bluetooth-platdata";
-		clocks = <&hym8563>;
+		clovp2_out_hdmi0cks = <&hym8563>;
 		clock-names = "ext_clock";
 		uart_rts_gpios = <&gpio1 RK_PA2 GPIO_ACTIVE_LOW>;
 		pinctrl-names = "default", "rts_gpio";
@@ -553,7 +553,7 @@
 			logo,kernel = "logo_kernel.bmp";
 			logo,mode = "center";
 			charge_logo,mode = "center";
-			connect = <&vp0_out_hdmi0>;
+			connect = <&vp2_out_hdmi0>;
 		};
 
 		route_hdmi1: route-hdmi1 {
@@ -562,7 +562,7 @@
 			logo,kernel = "logo_kernel.bmp";
 			logo,mode = "center";
 			charge_logo,mode = "center";
-			connect = <&vp1_out_hdmi1>;
+			connect = <&vp2_out_hdmi1>;
 		};
 	};
 };
@@ -573,7 +573,7 @@
 };
 
 &hdmi0_in_vp0 {
-	status = "okay";
+	status = "disabled";
 };
 
 &hdmi0_in_vp1 {
@@ -581,7 +581,7 @@
 };
 
 &hdmi0_in_vp2 {
-	status = "disabled";
+	status = "okay";
 };
 
 &hdmi0_sound {
@@ -600,11 +600,11 @@
 };
 
 &hdmi1_in_vp1 {
-	status = "okay";
+	status = "disabled";
 };
 
 &hdmi1_in_vp2 {
-	status = "disabled";
+	status = "okay";
 };
 
 &hdmi1_sound {
@@ -878,12 +878,23 @@
 };
 
 &dp0_in_vp2 {
+	status = "disable";
+};
+
+
+&dp0_in_vp0 {
 	status = "okay";
 };
 
+
+&dp0_in_vp1 {
+	status = "okay";
+};
+
+
 &route_dp0 {
 	status = "okay";
-	connect = <&vp2_out_dp0>;
+	connect = <&vp0_out_dp0>;
 };
 
 &spdif_tx2 {
